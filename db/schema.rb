@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115135155) do
+ActiveRecord::Schema.define(version: 20161115135139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 20161115135155) do
     t.string  "style"
     t.string  "address"
     t.string  "description"
-    t.integer "comments_id"
-    t.index ["comments_id"], name: "index_concerts_on_comments_id", using: :btree
+    t.integer "comment_id"
+    t.index ["comment_id"], name: "index_concerts_on_comment_id", using: :btree
   end
 
   create_table "tickets", force: :cascade do |t|
@@ -49,18 +49,21 @@ ActiveRecord::Schema.define(version: 20161115135155) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string  "username"
-    t.string  "password"
-    t.string  "first_name"
-    t.string  "last_name"
-    t.integer "age"
-    t.string  "adress"
-    t.string  "mail"
-    t.string  "phone_number"
+    t.string   "username"
+    t.string   "password"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "age"
+    t.string   "adress"
+    t.string   "mail"
+    t.string   "phone_number"
+    t.text     "description"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_foreign_key "comments", "users"
-  add_foreign_key "concerts", "comments", column: "comments_id"
+  add_foreign_key "concerts", "comments"
   add_foreign_key "tickets", "concerts"
   add_foreign_key "transactions", "tickets"
   add_foreign_key "transactions", "users"
