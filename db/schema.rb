@@ -16,7 +16,19 @@ ActiveRecord::Schema.define(version: 20161114092326) do
   enable_extension "plpgsql"
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+  end
+
+  create_table "transactions", force: :cascade do |t|
+
+  end
+
+  create_table "concerts", force: :cascade do |t|
+  end
+
+  create_table "tickets", force: :cascade do |t|
+  end
+
+  create_table "comments", force: :cascade do |t|
   end
 
 end
