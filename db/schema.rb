@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20161115135139) do
   create_table "concerts", force: :cascade do |t|
     t.string  "name"
     t.date    "date"
-    t.integer "remainint_tickets"
+    t.integer "remaining_tickets"
     t.integer "price"
     t.string  "style"
     t.string  "address"
