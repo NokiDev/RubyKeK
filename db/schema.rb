@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 20161115135139) do
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
     t.string  "comment"
-    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
   create_table "concerts", force: :cascade do |t|
@@ -29,8 +28,6 @@ ActiveRecord::Schema.define(version: 20161115135139) do
     t.string  "style"
     t.string  "address"
     t.string  "description"
-    t.integer "comment_id"
-    t.index ["comment_id"], name: "index_concerts_on_comment_id", using: :btree
   end
 
   create_table "tickets", force: :cascade do |t|
@@ -62,8 +59,6 @@ ActiveRecord::Schema.define(version: 20161115135139) do
     t.datetime "updated_at",   null: false
   end
 
-  add_foreign_key "comments", "users"
-  add_foreign_key "concerts", "comments"
   add_foreign_key "tickets", "concerts"
   add_foreign_key "transactions", "tickets"
   add_foreign_key "transactions", "users"

@@ -7,6 +7,6 @@ class Concert < ActiveRecord::Base
   validates :price, presence: true
   validates :style, presence: true
   validates :address, presence: true
-  validates :desription, presence: true
+  validates :description, presence: true
 
 end
