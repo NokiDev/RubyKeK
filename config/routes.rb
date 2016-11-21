@@ -15,8 +15,8 @@ Rails.application.routes.draw do
 
   resources :users
   resources :concerts
+    resources :comments
   resources :tickets
-  resources :comments
   resources :transactions
 
   # Example resource route with options:
