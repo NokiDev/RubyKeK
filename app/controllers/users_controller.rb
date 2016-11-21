@@ -1,11 +1,11 @@
 
 class UsersController < ApplicationController
   def new
-    render :action => "new"
+    #render user sign form
   end
 
   def index
-    render :action => "display"
+    @users = User.all
   end
 
   def show
@@ -13,13 +13,13 @@ class UsersController < ApplicationController
   end
   
   def create
-    @users = User.new(ok)
+    @users = User.new(user_params)
     @users.save
-    redirect_to @users
+    redirect_to controller: 'users', action: 'show', id: @users.id
   end
 
 private
-  def ok
+  def user_params
     params.require(:users).permit(:username,:password,:mail,:first_name,:last_name,:age)
   end
 

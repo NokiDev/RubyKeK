@@ -34,8 +34,11 @@ ActiveRecord::Schema.define(version: 20161115135139) do
   end
 
   create_table "tickets", force: :cascade do |t|
+    t.integer "user_id"
     t.integer "concert_id"
-    t.index ["concert_id"], name: "index_tickets_on_concert_id", using: :btree
+    t.integer "price"
+    t.datetime "bought_date", null:false
+    t.index ["concert_id", "user_id"], name: "index_tickets_on_concert_id_with_user_id", using: :btree
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -63,6 +66,6 @@ ActiveRecord::Schema.define(version: 20161115135139) do
   end
 
   add_foreign_key "tickets", "concerts"
-  add_foreign_key "transactions", "tickets"
-  add_foreign_key "transactions", "users"
+  add_foreign_key "comments", "concerts"
+  add_foreign_key "tickets", "users"
 end
