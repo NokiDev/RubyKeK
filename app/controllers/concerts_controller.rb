@@ -9,6 +9,7 @@ class ConcertsController < ApplicationController
   end
 
   def show
+    @comments = Comment.all
     @concert = Concert.find(params[:id])
   end
 
