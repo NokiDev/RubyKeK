@@ -1,16 +1,17 @@
-def new
-end
-
-def create
-	user=User.authenticate(params[:email], params[:password])
-	if user
-		session[:user_id]=user.username
-		
-	else
-		flash.now.alert = "invalid email or password"
+class SessionsController < ApplicationController
+	def new
 	end
-end
 
-def destroy
-	session[:user_id] = nil
+	def create
+		user=User.authenticate(params[:email], params[:password])
+		#Find the matching User !
+		if user
+			session[:user_id]=user.id
+		end
+	end
+
+	def destroy
+		session[:user_id] = nil
+	end
+
 end
