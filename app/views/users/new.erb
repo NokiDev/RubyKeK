@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>New User</h1>
+<%= form_for :users, url: users_path do |f| %>
+    <p>
+      <%= f.label :username %><br>
+      <%= f.text_field :username %>
+    </p>
+    <p>
+      <%= f.label :password %><br>
+      <%= f.text_field :password %>
+    </p>
+    <p>
+      <%= f.label :mail %><br>
+      <%= f.text_field :mail %>
+    </p>
+    <p>
+      <%= f.label :first_name %><br>
+      <%= f.text_field :first_name %>
+    </p>
+    <p>
+      <%= f.label :last_name %><br>
+      <%= f.text_field :last_name %>
+    </p>
+    <p>
+      <%= f.label :age %><br>
+      <%= f.number_field :age %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>
+</body>
+</html>
