@@ -18,6 +18,7 @@
         <td><%= concert.style %></td>
         <td><%= concert.address %></td>
         <td><%= concert.description %></td>
+        <td><%= link_to "show", concert_path(concert.id) %></td>
       </tr>
   <% end %>
 </table>
