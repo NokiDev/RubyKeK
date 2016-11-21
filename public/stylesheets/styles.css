@@ -1,0 +1,15 @@
+*{
+}
+
+#headerBar{
+    background-color: #122b40;
+    height : 5em;
+}
+
+#headerBar span{
+    display: inline-block;
+    color : #ffffff;
+    line-height: 2.5em;
+    font-size: 2em;
+}
+

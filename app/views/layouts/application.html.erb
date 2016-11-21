@@ -2,13 +2,21 @@
 <html>
   <head>
     <title>App</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'bootstrap.css' %>
+    <%= stylesheet_link_tag 'styles.css' %>
+    <!-- Latest compiled and minified CSS -->
   </head>
 
   <body>
+    <header>
+      <div class="col-md-12" id="headerBar">
+        <span class="col-md-2">Concertize</span>
+        <span class="col-md-3 col-md-offset-3">RubyKeK</span>
+      </div>
+    </header>
     <%= yield %>
+    <footer>
+
+    </footer>
   </body>
 </html>
