@@ -1,7 +1,7 @@
 
 class UsersController < ApplicationController
   def new
-    #render user sign form
+    #render user sign in form
   end
 
   def index
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   def create
     @users = User.new(user_params)
     @users.save
-    redirect_to controller: 'users', action: 'show', id: @users.id
+    redirect_to controller: 'users', action: 'show', id: @user
   end
 
 private
