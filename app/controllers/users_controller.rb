@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   def new
     #render user sign form
   end
-
+  
   def index
     @users = User.all
   end
