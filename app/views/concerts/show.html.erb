@@ -24,3 +24,17 @@
   <strong>Description : </strong>
   <%= @concert.description %>
 </p>
+
+<h1>Comments</h1>
+<%= form_for :comment, url: concert_comments_path(@concert) do |f| %>
+  <p>
+    <%= f.text_area :comment %><br/>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<% @comments.each do |comment| %>
+    <tr>
+      <td><%= comment.comment %></td><br/>
+    </tr>
+<% end %>
