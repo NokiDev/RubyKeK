@@ -81,7 +81,7 @@ For
 | userId      | Number(Foreign Key => UserTable)        |       |
 | concertId      | Number(Foreign Key => ConcertTable)        |       |
 | price      | Number        |       |
-| bougth_date | Date | |
+| bought_date | Date | |
 
 | Fields        | Types         | Infos  |
 |:-------------:|:-------------:|:-----:|

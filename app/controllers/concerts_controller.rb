@@ -9,7 +9,7 @@ class ConcertsController < ApplicationController
   end
 
   def show
-    @comments = Comment.find(:concert_id => params[:id])
+    @comments = Comment.where( concert_id: params[:id])
     @concert = Concert.find(params[:id])
   end
 
