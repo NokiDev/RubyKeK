@@ -20,9 +20,9 @@
   <%= @user.age %>
 </p>
 <ul>
-  <% @tickets.each do |ticket| %>
+  <% @user.tickets.each do |ticket| %>
       <li>
-        <%= link_to "#{ticket.price}", ticket %>
+        <%= link_to "#{ticket.concert.name}", ticket %>
         <%= ticket.price%>
         <%=  %>
       </li>

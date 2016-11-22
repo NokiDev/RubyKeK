@@ -2,6 +2,7 @@ class CreateTickets < ActiveRecord::Migration[5.0]
   def change
     create_table :tickets, force: :cascade do |t|
       t.integer  :price, null:false
+      t.integer  :number_of, null:false
       t.datetime :bought_date, null: false
     end
 

@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    
+
   end
   
   def create
@@ -41,6 +41,7 @@ class UsersController < ApplicationController
       redirect_to controller: 'users', action:'show', id: @user
     end
   end
+
 
 private
   def user_params

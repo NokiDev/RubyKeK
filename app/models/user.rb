@@ -4,15 +4,9 @@ class User < ActiveRecord::Base #User(Model) Inherit from ActiveRecord::Base it'
   validates :password, presence: true
   validates :email, presence: true
   validates :activation_key, presence:true
+  # Used tko allow creation of an item they are required arguments
 
   has_many :tickets
-
-  # Used tko allow creation of an item they are required arguments
-  #todo loook in docs for more vars
-
-  def todo
-    #todo
-  end
 
   def self.authenticate(email, password)
     @user = User.find_by(email: email, password: password)

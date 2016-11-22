@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20161115135138) do
     t.datetime "bought_date", null: false
     t.integer  "user_id"
     t.integer  "concert_id"
+    t.integer "number_of", null:false
     t.index ["concert_id"], name: "index_tickets_on_concert_id", using: :btree
     t.index ["user_id"], name: "index_tickets_on_user_id", using: :btree
   end

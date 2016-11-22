@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  include SessionHelper
   #include CanCan::ControllerAdditions
 
   #rescue_from CanCan::AccessDenied do |exception|
@@ -8,6 +9,8 @@ class ApplicationController < ActionController::Base
 
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
   #rescue_from User::NotAuthorized, with: :user_not_authorized
+
+
 
 private
 
@@ -18,7 +21,7 @@ private
   def not_authorized
     redirect_to('/') if current_user.blank?
   end
-  
+
   helper_method :current_user
 
 	private
