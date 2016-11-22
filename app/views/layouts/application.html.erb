@@ -8,10 +8,11 @@
   </head>
 
   <body>
+  <script src="https://use.fontawesome.com/fd0b0a9b98.js"></script>
     <header>
       <div class="col-md-12" id="headerBar">
-        <span class="col-md-2">Concertize</span>
-        <span class="col-md-3 col-md-offset-3">RubyKeK</span>
+        <%= link_to 'Concertize', {:controller => 'concerts', :action => 'index'}, :class => "col-md-1", id: "concertize" %>
+        <span class="col-md-3 col-md-offset-4">RubyKeK</span>
       </div>
     </header>
     <%= yield %>

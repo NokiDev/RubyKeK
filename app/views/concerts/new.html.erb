@@ -1,44 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
-<h1>New Concert</h1>
-<%= form_for :concert, url: concerts_path do |f| %>
-    <p>
-      <%= f.label :Concert_Name %><br>
-      <%= f.text_field :name %>
-    </p>
-    <!-- Todo Date -->
-    <p>
-      <%= f.label :Date %>
-      <%= f.date_select   :date %>
-    </p>
-    <p>
-      <%= f.label :Style %><br>
-      <%= f.text_field :style %>
-    </p>
-    <p>
-      <%= f.label :Remaining_Tickets %><br>
-      <%= f.number_field :remaining_tickets %>
-    </p>
-    <p>
-      <%= f.label :Price %><br>
-      <%= f.number_field :price %>
-    </p>
-    <p>
-      <%= f.label :Address %><br>
-      <%= f.text_field :address %>
-    </p>
-    <p>
-      <%= f.label :Description %><br>
-      <%= f.text_area :description %>
-    </p>
-    <p>
-      <%= f.submit %>
-    </p>
-<% end %>
-</body>
-</html>
+<div class="container" >
+  <div  class="row">
+    <h1 class="col-md-3 col-md-offset-5" id="formTitle">New Concert</h1>
+  </div>
+  <div id="form">
+  <%= form_for :concert, url: concerts_path do |f| %>
+      <div class="row ">
+          <div class="col-md-1 col-md-offset-1 icon">
+            <i class="fa fa-etsy" aria-hidden="true"></i>
+          </div>
+      </div>
+      <div class="row">
+        <p>
+          <%= f.text_field :name,:class => "col-md-10 col-md-offset-1 inputs", placeholder: "Name" %>
+        </p>
+      </div>
+        <div class="row ">
+          <div class="col-md-1 col-md-offset-1 icon">
+            <i class="fa fa-music" aria-hidden="true"></i>
+          </div>
+        </div>
+      <div class="row">
+        <p>
+          <%= f.text_field :style,:class => "col-md-10 col-md-offset-1 inputs", placeholder: "Style" %>
+        </p>
+      </div>
+        <div class="row ">
+          <div class="col-md-1 col-md-offset-1 icon">
+            <i class="fa fa-credit-card" aria-hidden="true"></i>
+          </div>
+        </div>
+      <div class="row">
+        <p>
+          <%= f.number_field :remaining_tickets,:class => "col-md-10 col-md-offset-1 inputs", placeholder: "Remaining Tickets" %>
+        </p>
+      </div>
+        <div class="row ">
+          <div class="col-md-1 col-md-offset-1 icon">
+            <i class="fa fa-usd" aria-hidden="true"></i>
+          </div>
+        </div>
+      <div class="row">
+        <p>
+          <%= f.number_field :price,:class => "col-md-10 col-md-offset-1 inputs", placeholder: "Price" %>
+        </p>
+      </div>
+        <div class="row ">
+          <div class="col-md-1 col-md-offset-1 icon">
+            <i class="fa fa-home" aria-hidden="true"></i>
+          </div>
+        </div>
+      <div class="row">
+        <p>
+          <%= f.text_field :address,:class => "col-md-10 col-md-offset-1 inputs", placeholder: "Address" %>
+        </p>
+      </div>
+        <div class="row ">
+          <div class="col-md-1 col-md-offset-1 icon">
+            <i class="fa fa-comments" aria-hidden="true"></i>
+          </div>
+        </div>
+      <div class="row">
+        <p>
+          <%= f.text_area :description,:class => "col-md-10 col-md-offset-1 inputs", id: "description", placeholder: "Description" %>
+        </p>
+      </div>
+      <div class="row">
+        <p class="col-md-6 col-md-offset-7 inputs">
+          <%= f.datetime_select :date, { ampm: true, order: [:day, :month, :year] }, { class: "" } %>
+        </p>
+      </div>
+      <div class="row">
+        <p>
+          <%= f.submit 'Submit', :class => "col-md-1 col-md-offset-10 inputs"  %>
+        </p>
+      </div>
+  <% end %>
+  </div>
+</div>

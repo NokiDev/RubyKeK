@@ -1,25 +1,29 @@
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Date</th>
-    <th>Remaining Tickets</th>
-    <th>prince</th>
-    <th>style</th>
-    <th>address</th>
-    <th>description</th>
-  </tr>
-
-  <% @concerts.each do |concert| %>
+<div class="container">
+  <div class="table-responsive" id="table">
+    <table class="table">
       <tr>
-        <td><%= concert.name %></td>
-        <td><%= concert.date %></td>
-        <td><%= concert.remaining_tickets %></td>
-        <td><%= concert.price %></td>
-        <td><%= concert.style %></td>
-        <td><%= concert.address %></td>
-        <td><%= concert.description %></td>
-        <td><%= link_to "show", concert_path(concert.id) %></td>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Remaining Tickets</th>
+        <th>prince</th>
+        <th>style</th>
+        <th>address</th>
+        <th>description</th>
+        <th>Link to details</th>
       </tr>
-  <% end %>
-</table>
 
+      <% @concerts.each do |concert| %>
+          <tr>
+            <td><%= concert.name %></td>
+            <td><%= concert.date %></td>
+            <td><%= concert.remaining_tickets %></td>
+            <td><%= concert.price %></td>
+            <td><%= concert.style %></td>
+            <td><%= concert.address %></td>
+            <td><%= concert.description %></td>
+            <td><%= link_to "show", concert_path(concert.id) %></td>
+          </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

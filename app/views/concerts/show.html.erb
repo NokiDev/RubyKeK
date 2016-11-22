@@ -1,40 +1,63 @@
-<p>
-  <strong>Title : </strong>
-  <%= @concert.name %>
-</p>
-<p>
-  <strong>Date : </strong>
-  <%= @concert.date %>
-</p><p>
-  <strong>Remaining Tickets : </strong>
-  <%= @concert.remaining_tickets %>
-</p>
-<p>
-  <strong>Price : </strong>
-  <%= @concert.price %>
-</p><p>
-  <strong>Style : </strong>
-  <%= @concert.style %>
-</p>
-<p>
-  <strong>Address : </strong>
-  <%= @concert.address %>
-</p>
-<p>
-  <strong>Description : </strong>
-  <%= @concert.description %>
-</p>
+<div class="container">
+  <div id="elementContainer">
+    <p class="row">
+      <strong>Title : </strong>
+      <%= @concert.name %>
+    </p>
+    <p class="row">
+      <strong>Date : </strong>
+      <%= @concert.date %>
+    </p>
+    <p class="row">
+      <strong>Remaining Tickets : </strong>
+      <%= @concert.remaining_tickets %>
+    </p>
+    <p class="row">
+      <strong>Price : </strong>
+      <%= @concert.price %>
+    </p>
+    <p class="row">
+      <strong>Style : </strong>
+      <%= @concert.style %>
+    </p>
+    <p class="row">
+      <strong>Address : </strong>
+      <%= @concert.address %>
+    </p>
+    <p class="row">
+      <strong>Description : </strong>
+      <%= @concert.description %>
+    </p>
+      <h3>Add a Comment</h3>
+      <%= form_for :comment, url: concert_comments_path(@concert) do |f| %>
+        <p class="row">
+          <%= f.text_area :comment, :class => "col-md-6 input-group", placeholder: "Comment" %><br/>
+        </p>
+        </div>
+        <div class="row">
+        <%= f.submit %>
+        </div>
+      <% end %>
 
-<h1>Comments</h1>
-<%= form_for :comment, url: concert_comments_path(@concert) do |f| %>
-  <p>
-    <%= f.text_area :comment %><br/>
-    <%= f.submit %>
-  </p>
-<% end %>
 
-<% @comments.each do |comment| %>
-    <tr>
-      <td><%= comment.comment %></td><br/>
-    </tr>
-<% end %>
+
+    <table class="table" id="commentTable">
+      <thead>
+        <tr>
+          <th>User Name</th>
+          <th>Comment</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <% @comments.each do |comment| %>
+          <tbody>
+            <tr>
+              <th>@username</th>
+              <th><%= comment.comment %></th>
+              <th><%= comment.created_at%></th>
+            </tr>
+          </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>
