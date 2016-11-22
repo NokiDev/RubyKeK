@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+  <h1>Hello <%= @user.first_name %><</h1>
+  <h2>Welcome to concertiz, thank you for your intereset in our project. </h2>
+  <p>
+    Now you have created your account, you have to confirm your email address.
+    It's easy just follow this link : <% @url %>
+    Some mementos :
+    Your username is: <%= @user.username %>.<br>
+    Your password is: Oh sorry it's encrypted
+  </p>
+  <p>Thanks for joining and have a great day!</p>
+</body>
+</html>

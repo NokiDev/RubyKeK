@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hello <%= @user.first_name %><</h1>
+    <h2>Thanks for your purchase</h2>
+    <p>
+      You can get your tickets directly from here, as PDF Files.
+      It's easy just follow this link : <% @url %>
+      Some Mementos:
+
+      <%= @user.first_name @user.last_name %>
+      <%= @user.address %>
+
+      <%= @concert.name %>
+      <%= @concert.style %>
+      <%= @concert.date %>
+      <%= @ticket.bought_date @ticket.price %>
+
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>

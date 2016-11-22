@@ -6,7 +6,16 @@ class ApplicationController < ActionController::Base
   #  redirect_to root_url, :alert => exception.message
   #end
 
-  def login_required
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+  #rescue_from User::NotAuthorized, with: :user_not_authorized
+
+private
+
+  def record_not_found
+    render plain: "404 Not Found", status: 404
+  end
+
+  def not_authorized
     redirect_to('/') if current_user.blank?
   end
   
