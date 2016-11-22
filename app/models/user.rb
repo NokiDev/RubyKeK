@@ -13,4 +13,12 @@ class User < ActiveRecord::Base #User(Model) Inherit from ActiveRecord::Base it'
     #todo
   end
 
+  def self.authenticate(email, password)
+    @user = User.find_by_mail(email)
+    if @user && password == @user.password
+      @user
+    else
+      nil
+    end
+  end
 end

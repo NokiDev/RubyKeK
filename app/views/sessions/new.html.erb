@@ -1,16 +1,16 @@
 <h1>Log in</h1>
 
-<%= form_for :sessions, url :sessions_path do |f| %>
+<%= form_for :session, url: sessions_path do |f| %>
+<p>
+    <%= f.label :Email %><br>
+    <%= f.text_field :mail %>
+  </p>
   <p>
-      <%= f.label :password %><br>
-      <%= f.text_field :password %>
-    </p>
-    <p>
-      <%= f.label :email %><br>
-      <%= f.text_field :email %>
-    </p>
-    <p>
-    	<%= f.submit %>
-    </p>
+    <%= f.label :Password %><br>
+    <%= f.text_field :password %>
+  </p>
+  <p>
+   	<%= f.submit %>
+  </p>
 <% end %>
 
