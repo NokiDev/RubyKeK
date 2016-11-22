@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115135138) do
+ActiveRecord::Schema.define(version: 20161115135139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,33 +36,37 @@ ActiveRecord::Schema.define(version: 20161115135138) do
   end
 
   create_table "tickets", force: :cascade do |t|
-    t.integer  "price",       null: false
-    t.datetime "bought_date", null: false
-    t.integer  "user_id"
-    t.integer  "concert_id"
+    t.integer "concert_id"
     t.index ["concert_id"], name: "index_tickets_on_concert_id", using: :btree
-    t.index ["user_id"], name: "index_tickets_on_user_id", using: :btree
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "ticket_id"
+    t.integer  "user_id"
+    t.index ["ticket_id"], name: "index_transactions_on_ticket_id", using: :btree
+    t.index ["user_id"], name: "index_transactions_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",                        null: false
-    t.string   "password",                        null: false
+    t.string   "username"
+    t.string   "password"
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "age"
     t.string   "adress"
-    t.string   "email",                           null: false
+    t.string   "mail"
     t.string   "phone_number"
-    t.text     "description",    default: ""
-    t.boolean  "enabled",        default: false
-    t.string   "activation_key",                  null: false
-    t.string   "status",         default: "none"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.text     "description"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_foreign_key "comments", "concerts"
   add_foreign_key "comments", "users"
   add_foreign_key "tickets", "concerts"
-  add_foreign_key "tickets", "users"
+  add_foreign_key "transactions", "tickets"
+  add_foreign_key "transactions", "users"
 end
