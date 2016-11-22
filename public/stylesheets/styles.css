@@ -117,3 +117,12 @@ body{
     top: 100px;
     right: 8%;
 }
+
+#user_nav{
+    text-decoration: none;
+}
+
+#theform{
+    display: inline-block;
+    margin-top: 1.3em;
+}

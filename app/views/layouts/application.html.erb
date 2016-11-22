@@ -12,13 +12,16 @@
     <header>
       <div class="col-md-12" id="headerBar">
         <%= link_to 'Concertize', {:controller => 'concerts', :action => 'index'}, :class => "col-md-1", id: "concertize" %>
-        <span class="col-md-3 col-md-offset-4">RubyKeK</span>
+        <span class="col-md-1 col-md-offset-1">RubyKeK</span>
+        <%= form_for :concert, url: concerts_search do |f| %>
+            <div class="form-group col-md-2 col-md-offset-6" id="theform">
+              <%= f.text_field :address,:class => "form-control", placeholder: "Rechercher" %>
+            </div>
+        <% end %>
+        <%= link_to "Log in", "/sessions/new", :class => "col-md-1", :id => "concertize" %>
       </div>
     </header>
     <%= yield %>
-    <div id="user_nav">
-      <%= link_to "Log in", "/sessions/new" %>
-    </div>
     <footer>
 
     </footer>
