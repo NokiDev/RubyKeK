@@ -30,7 +30,7 @@
     </p>
     <%= form_for :tickets, url: tickets_path do |f| %>
       <div class="counter">
-        Tickets to buy : <%= f.number_field :numberOfTickets, :placeholder => "Nb of Tickets" %> <%= f.submit 'Buy', :class => "btn btn-success"%>
+        Tickets to buy : <%= f.number_field :number_of, :placeholder => "Nb of Tickets" %> <%= f.submit 'Buy', :class => "btn btn-success"%>
       </div>
     <% end %>
       <h3>Add a Comment</h3>
