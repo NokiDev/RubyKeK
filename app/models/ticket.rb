@@ -1,6 +1,6 @@
 
 class Ticket < ActiveRecord::Base
-  after_save decrement_remaining_tickets
+  after_save :decrement_remaining_tickets
 
   validates :user_id, presence: true
   validates :concert_id, presence: true
@@ -16,6 +16,7 @@ private
   def decrement_remaining_tickets(ticket)
     concert = Concert.find(ticket.concert_id)
     concert.remaining_tickets -= ticket.number_of
+    concert.save
     nil
   end
 
