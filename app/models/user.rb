@@ -5,6 +5,7 @@ class User < ActiveRecord::Base #User(Model) Inherit from ActiveRecord::Base it'
   validates :email, presence: true
   validates :activation_key, presence:true
 
+  has_many :tickets
 
   # Used tko allow creation of an item they are required arguments
   #todo loook in docs for more vars

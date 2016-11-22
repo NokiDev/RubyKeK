@@ -52,7 +52,7 @@
       <% @comments.each do |comment| %>
           <tbody>
             <tr>
-              <th>@username</th>
+              <th><%=comment.user.username%></th>
               <th><%= comment.comment %></th>
               <th><%= comment.created_at%></th>
             </tr>

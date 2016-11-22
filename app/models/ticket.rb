@@ -6,5 +6,7 @@ class Ticket < ActiveRecord::Base
   validates :price, presence: true
   validates :bougth_date, presence: true
 
+  has_one :concert
+  has_one :user
 
 end

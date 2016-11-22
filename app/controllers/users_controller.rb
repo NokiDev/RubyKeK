@@ -9,7 +9,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @users = User.find(params[:id])
+    @user = User.find(params[:id])
+    
   end
   
   def create
@@ -18,10 +19,8 @@ class UsersController < ApplicationController
     @user.activation_key = '%010d' % rand(10 ** 10)
     if @user.save
       UserMailer.confirm_email(@user).deliver_later
-
       redirect_to action: :confirm_mail, controller: :users, user_id: @user.id
     else
-      raise @user.inspect
       redirect_to :new_user
     end
   end
@@ -35,9 +34,10 @@ class UsersController < ApplicationController
   end
 
   def user_activate
-    @user = User.where(activation_key: params[:key])
+    @user = User.find(activation_key: params[:key])
     if @user
       @user.enabled = true
+      session[:user_id] = @user
       redirect_to controller: 'users', action:'show', id: @user
     end
   end
