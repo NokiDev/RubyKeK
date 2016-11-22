@@ -1,29 +1,18 @@
 <div class="container">
-  <div class="table-responsive" id="table">
-    <table class="table">
-      <tr>
-        <th>Name</th>
-        <th>Date</th>
-        <th>Remaining Tickets</th>
-        <th>prince</th>
-        <th>style</th>
-        <th>address</th>
-        <th>description</th>
-        <th>Link to details</th>
-      </tr>
-
-      <% @concerts.each do |concert| %>
-          <tr>
-            <td><%= concert.name %></td>
-            <td><%= concert.date %></td>
-            <td><%= concert.remaining_tickets %></td>
-            <td><%= concert.price %></td>
-            <td><%= concert.style %></td>
-            <td><%= concert.address %></td>
-            <td><%= concert.description %></td>
-            <td><%= link_to "show", concert_path(concert.id) %></td>
-          </tr>
-      <% end %>
-    </table>
+  <div class="wholeContainer">
+    <% @concerts.each do |concert| %>
+        <div  class="pCards col-md-3">
+          <div class="col-md-12 pUnderCards">
+            <p>Titre : <%= concert.name %></p>
+            <p>Style : <%= concert.style %></p>
+            <p>Prix : <%= concert.price %></p>
+            <p><%= link_to "Details", concert_path(concert.id) %></p>
+          </div>
+        </div>
+        <div class="col-md-1 sperationDiv">
+        </div>
+    <% end %>
   </div>
 </div>
+
+<a class="plusIcon" href="/concerts/new"><i class="fa fa-plus" aria-hidden="true"></i></a>

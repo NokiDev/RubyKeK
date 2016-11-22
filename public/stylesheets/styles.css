@@ -77,3 +77,43 @@ body{
     font-size: 2em;
     line-height: 2.5em;
 }
+
+.pCards{
+    height: 20em;
+    background-color: white;
+    margin-bottom: 2em;
+    position: relative;
+}
+
+.pCards h1{
+    text-align: center;
+    margin-top: 2em;
+}
+
+.pUnderCards{
+    background-color: grey;
+    opacity: 0.6;
+    height:40%;
+    position: absolute;
+    bottom: 0;
+    left:0;
+}
+
+.pUnderCards p{
+    margin:4px;
+}
+
+.seperationDiv{
+    background-color: transparent;
+}
+
+.wholeContainer{
+    margin-top: 2em;
+}
+
+.plusIcon{
+    position: fixed;
+    font-size: 200%;
+    top: 100px;
+    right: 8%;
+}
