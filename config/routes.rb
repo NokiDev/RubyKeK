@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
 
   get 'users/:user_id/activate/:activation_key' => 'users#activate', as: :activate
-  get 'concerts/search' => 'concerts#search', as: :concerts_search
+  post 'concerts/search' => 'concerts#search', as: :concerts_search_post
+  get 'concerts/search' => 'concerts#search', as: :concerts_search_get
   resources :users do
     get 'confirm_mail'
   end
