@@ -37,6 +37,7 @@ class UsersController < ApplicationController
     @user = User.find(activation_key: params[:key])
     if @user
       @user.enabled = true
+      @user.save
       session[:user_id] = @user
       redirect_to controller: 'users', action:'show', id: @user
     end
@@ -45,7 +46,7 @@ class UsersController < ApplicationController
 
 private
   def user_params
-    params.require(:users).permit(:username,:password,:email)
+    params.require(:users).permit(:username,:password,:email, :last_name, :first_name, :address, :phone_number, :age)
   end
 
 end
